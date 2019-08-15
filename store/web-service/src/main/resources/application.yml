@@ -1,0 +1,32 @@
+server:
+  port: 8001
+  servlet:
+    path: /
+logging:
+  level:
+    com.wj: debug
+spring:
+  application:
+    name: web-service
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance: #本机
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 2000 # 设置hystrix的超时时间为2000ms
+        timeout:
+        enabled: true    #打开超时设置，默认关闭
+

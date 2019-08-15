@@ -1,0 +1,31 @@
+server:
+  port: 9002
+logging:
+  level:
+    com.wj: debug
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/store
+    username: root
+    password: root
+  application:
+    name: cart-service #应用服务名称
+  redis:
+    database: 0
+    password:
+    port: 6379
+    host: 127.0.0.1
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+eureka:
+  client:
+    # register-with-eureka: false # 是否注册自己的信息到EurekaServer，默认是true
+    #fetch-registry: false # 是否拉取其它服务的信息，默认是true
+    service-url: # EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址。
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+  instance: #本机
+    prefer-ip-address: true
+    ip-address: 127.0.0.1

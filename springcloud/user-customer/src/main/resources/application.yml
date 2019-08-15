@@ -1,0 +1,24 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: user-customer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+  instance: #本机
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 2000 # 设置hystrix的超时时间为2000ms
+        timeout:
+        enabled: true    #打开超时设置，默认关闭
+feign:
+  hystrix:
+    enabled: true # 开启Feign的熔断功能
